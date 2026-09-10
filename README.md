@@ -1,6 +1,6 @@
-# Kish by dot
+## 🚀 Live Demo
 
-The app and Git repository are in **DOT_NEW**.
+[**Open Smart Mandi Website →**](https://dot-blond.vercel.app/)
 
 ```powershell
 cd DOT_NEW
