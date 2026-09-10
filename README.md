@@ -1,6 +1,6 @@
 ## 🚀 Live Demo
 
-[**Open Smart Mandi Website →**](https://dot-blond.vercel.app/)
+[**Open KISH website →**](https://dot-blond.vercel.app/)
 
 ```powershell
 cd DOT_NEW
