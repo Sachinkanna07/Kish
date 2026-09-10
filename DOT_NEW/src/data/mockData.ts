@@ -1,0 +1,137 @@
+import type { ProcurementCentre, MarketRate, Crop } from '../types'
+
+export const mockCrops: Crop[] = [
+  {
+    id: 'rice',
+    name: { en: 'Rice', ta: 'அரிசி' },
+    unit: { en: 'kg', ta: 'கிலோ' },
+    mspPerQuintal: 2450,
+    season: { en: 'Kharif', ta: 'கார்' },
+  },
+  {
+    id: 'wheat',
+    name: { en: 'Wheat', ta: 'கோதுமை' },
+    unit: { en: 'kg', ta: 'கிலோ' },
+    mspPerQuintal: 2100,
+    season: { en: 'Rabi', ta: 'ரபி' },
+  },
+  {
+    id: 'cotton',
+    name: { en: 'Cotton', ta: 'பருத்தி' },
+    unit: { en: 'kg', ta: 'கிலோ' },
+    mspPerQuintal: 5800,
+    season: { en: 'Oct–Mar', ta: 'அக்–மார்' },
+  },
+  {
+    id: 'sugarcane',
+    name: { en: 'Sugarcane', ta: 'கரும்பு' },
+    unit: { en: 'quintal', ta: 'குவிண்டால்' },
+    mspPerQuintal: 3400,
+    season: { en: 'Year round', ta: 'ஆண்டு முழுவதும்' },
+  },
+  {
+    id: 'vegetables',
+    name: { en: 'Vegetables', ta: 'காய்கறிகள்' },
+    unit: { en: 'kg', ta: 'கிலோ' },
+    mspPerQuintal: 1800,
+    season: { en: 'Year round', ta: 'ஆண்டு முழுவதும்' },
+  },
+]
+
+export const mockMarketRates: MarketRate[] = [
+  {
+    cropId: 'rice',
+    cropNameEn: 'Rice',
+    cropNameTa: 'அரிசி',
+    currentRate: 2450,
+    unit: 'per 100kg',
+    lastUpdated: '2 hours ago',
+  },
+  {
+    cropId: 'wheat',
+    cropNameEn: 'Wheat',
+    cropNameTa: 'கோதுமை',
+    currentRate: 2100,
+    unit: 'per 100kg',
+    lastUpdated: '1 hour ago',
+  },
+  {
+    cropId: 'cotton',
+    cropNameEn: 'Cotton',
+    cropNameTa: 'பருத்தி',
+    currentRate: 5800,
+    unit: 'per quintal',
+    lastUpdated: '3 hours ago',
+  },
+]
+
+export const mockProcurementCentres: ProcurementCentre[] = [
+  {
+    id: 'centre-1',
+    nameEn: 'Central Mandi - Kovilpatti',
+    nameTa: 'மையக் கடைசல் - கோவிள்பட்டி',
+    location: {
+      lat: 8.7739,
+      lng: 77.7597,
+      addressEn: 'Main Market Road, Kovilpatti',
+      addressTa: 'முதன்மை சந்தை சாலை, கோவிள்பட்டி',
+    },
+    distance: 3.2,
+    currentQueue: 12,
+    estimatedWaitingTime: 35,
+    availableCapacity: 45,
+    availableSlots: 8,
+    status: 'open',
+  },
+  {
+    id: 'centre-2',
+    nameEn: 'Regional Market - Tuticorin',
+    nameTa: 'பிராந்திய சந்தை - தூத்துக்குடி',
+    location: {
+      lat: 8.7642,
+      lng: 78.1348,
+      addressEn: 'Port Area, Tuticorin',
+      addressTa: 'துறைமுகப் பகுதி, தூத்துக்குடி',
+    },
+    distance: 12.5,
+    currentQueue: 28,
+    estimatedWaitingTime: 85,
+    availableCapacity: 20,
+    availableSlots: 3,
+    status: 'busy',
+  },
+  {
+    id: 'centre-3',
+    nameEn: 'East Mandi - Nagercoil',
+    nameTa: 'கிழக்கு கடைசல் - நாகர்கோவில்',
+    location: {
+      lat: 8.1726,
+      lng: 77.4256,
+      addressEn: 'Bazaar Street, Nagercoil',
+      addressTa: 'பசார் தெரு, நாகர்கோவில்',
+    },
+    distance: 22.8,
+    currentQueue: 5,
+    estimatedWaitingTime: 15,
+    availableCapacity: 65,
+    availableSlots: 15,
+    status: 'open',
+  },
+  {
+    id: 'centre-4',
+    nameEn: 'North Market - Virudunagar',
+    nameTa: 'வடக்கு சந்தை - விருதுநகர்',
+    location: {
+      lat: 9.5265,
+      lng: 77.9693,
+      addressEn: 'Industrial Zone, Virudunagar',
+      addressTa: 'தொழிற்சாலை மண்டலம், விருதுநகர்',
+    },
+    distance: 35.2,
+    currentQueue: 42,
+    estimatedWaitingTime: 120,
+    availableCapacity: 10,
+    availableSlots: 1,
+    status: 'busy',
+  },
+]
