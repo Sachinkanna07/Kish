@@ -4,9 +4,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+def database_url_from_environment() -> str:
+    database_url = os.getenv('DATABASE_URL', 'sqlite:///./kish.db')
+    if database_url.startswith('postgresql://'):
+        return database_url.replace('postgresql://', 'postgresql+psycopg://', 1)
+    if database_url.startswith('postgres://'):
+        return database_url.replace('postgres://', 'postgresql+psycopg://', 1)
+    return database_url
+
 @dataclass(frozen=True)
 class Settings:
-    database_url: str = os.getenv('DATABASE_URL', 'sqlite:///./kish.db')
+    database_url: str = database_url_from_environment()
     redis_url: str = os.getenv('REDIS_URL', '')
     secret: str = os.getenv('AUTH_SECRET', 'development-only-replace-before-deploying')
     production: bool = os.getenv('APP_ENV', 'development') == 'production'
@@ -20,5 +28,5 @@ class Settings:
     capacity_buffer: float = float(os.getenv('REBALANCE_CAPACITY_BUFFER', '0.1'))
 
 settings = Settings()
-if settings.production and (len(settings.secret) < 32 or settings.secret.startswith('development') or settings.sms_secret == 'local-webhook-secret' or settings.simulation):
-    raise RuntimeError('Production requires strong AUTH_SECRET, SMS_WEBHOOK_SECRET and SIMULATION_MODE=false')
+if settings.production and (settings.database_url.startswith('sqlite') or len(settings.secret) < 32 or settings.secret.startswith('development') or settings.sms_secret == 'local-webhook-secret' or settings.simulation):
+    raise RuntimeError('Production requires PostgreSQL, strong AUTH_SECRET, SMS_WEBHOOK_SECRET and SIMULATION_MODE=false')
