@@ -531,6 +531,9 @@ main {
   max-width: 490px;
   margin: auto;
 }
+.entry-language {
+  max-width: 560px;
+}
 .entry-art {
   height: 172px;
   background: #e9eedd;
@@ -556,6 +559,63 @@ main {
   font-weight: 700;
   line-height: 1.9;
   color: #4f6842;
+}
+.entry-art-language {
+  background: linear-gradient(150deg, #eff4e2, #e5edd7 55%, #dce8cb);
+  border: 1px solid #d1dcc0;
+  border-radius: 22px;
+  box-shadow: 0 16px 36px #4562311f;
+}
+.language-card {
+  margin-top: 0;
+  border-color: #d3ddc4;
+  border-radius: 20px;
+  background: #fffef8;
+}
+.language-card .page-heading {
+  margin-bottom: 16px;
+}
+.language-card .page-heading h1 {
+  font-size: clamp(1.9rem, 5vw, 2.45rem);
+  line-height: 1.2;
+}
+.language-card .eyebrow {
+  color: #426b3f;
+}
+.language-note {
+  font-size: 0.88rem;
+  color: #5f7057;
+  margin-bottom: 16px;
+}
+.language-options {
+  gap: 14px;
+}
+.language-choice {
+  min-height: 76px;
+  border-color: #d4dec9;
+  border-radius: 14px;
+  background: #f9fbf1;
+}
+.language-choice:hover {
+  border-color: #769264;
+}
+.language-choice strong {
+  display: grid;
+  gap: 3px;
+  line-height: 1.3;
+}
+.language-choice strong small {
+  color: #687b60;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.language-choice-indicator {
+  color: #2f613b;
+  font-size: 1rem;
+}
+.language-choice.selected {
+  border-color: #4f7546;
+  background: #edf5e5;
 }
 .field-lines {
   position: absolute;
@@ -981,6 +1041,12 @@ footer {
   }
   .entry-art {
     height: 145px;
+  }
+  .language-card .page-heading h1 {
+    font-size: 1.8rem;
+  }
+  .language-choice {
+    padding: 15px;
   }
   .operator-select {
     padding: 0 19px;

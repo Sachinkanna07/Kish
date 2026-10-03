@@ -628,29 +628,40 @@ export default function App() {
   // Screens are composed below; all roles use the same persistent demo records.
   if (!session)
     content = (
-      <div className="entry">
-        <div className="entry-art">
+      <div className={`entry ${stage === "language" ? "entry-language" : ""}`}>
+        <div className={`entry-art ${stage === "language" ? "entry-art-language" : ""}`}>
           <Icon name="field" size={64} />
           <p>{t("FROM YOUR FIELD.", "உங்கள் வயலிலிருந்து.")}</p>
           <p>{t("TO A FAIRER MARKET.", "நியாயமான சந்தைக்கு.")}</p>
           <div className="field-lines" />
         </div>
         {stage === "language" ? (
-          <>
+          <section className="card language-card">
             {heading(
               "KISH",
               "வணக்கம். Welcome.",
               "Choose your language · உங்கள் மொழியைத் தேர்வு செய்யவும்",
             )}
-            <div className="stack">
+            <p className="language-note">
+              {t(
+                "Pick one language to continue. You can switch this anytime.",
+                "தொடர ஒரு மொழியைத் தேர்வு செய்யுங்கள். இதை எப்போது வேண்டுமானாலும் மாற்றலாம்.",
+              )}
+            </p>
+            <div className="stack language-options">
               {(["ta", "en"] as const).map((l) => (
                 <button
-                  className={`choice ${language === l ? "selected" : ""}`}
+                  className={`choice language-choice ${language === l ? "selected" : ""}`}
                   key={l}
                   onClick={() => setLanguage(l)}
                 >
-                  <strong>{l === "ta" ? "தமிழ்" : "English"}</strong>
-                  <span>{language === l ? "●" : "○"}</span>
+                  <strong>
+                    {l === "ta" ? "தமிழ்" : "English"}
+                    <small>{l === "ta" ? "Tamil" : "ஆங்கிலம்"}</small>
+                  </strong>
+                  <span className="language-choice-indicator">
+                    {language === l ? "●" : "○"}
+                  </span>
                 </button>
               ))}
               {button(t("Continue", "தொடரவும்"), () => {
@@ -658,7 +669,7 @@ export default function App() {
                 setStage("intro");
               })}
             </div>
-          </>
+          </section>
         ) : stage === "intro" ? (
           <>
             {heading(
