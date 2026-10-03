@@ -1,10 +1,10 @@
-# Smart Mandi Intelligence implementation plan
+# KISH implementation plan
 
 This file now tracks the corrected product baseline.
 
 ## Product definition
 
-Smart Mandi Intelligence is a role-based real-time web platform with three controlled experiences:
+KISH is a role-based real-time web platform with three controlled experiences:
 
 - Farmer: pre-registered login, centre recommendation, token, queue, procurement, payment, history
 - Authority: farmer registry, live operations, queue control, weighbridge and quality updates, procurement
