@@ -189,55 +189,152 @@ main {
   min-height: 44px;
   padding: 8px 0;
 }
-.hero-card {
-  background: #244f38;
-  color: #fff;
-  border-radius: 20px;
-  padding: 26px;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 23px;
+.home-hero {
+  background: linear-gradient(150deg, #1d5a3d 0%, #224d35 55%, #1a3f2d 100%);
+  color: #f6f5e7;
+  border-color: #294f3c;
+  border-radius: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 18px 45px #15302133;
 }
-.hero-card:after {
-  content: "";
-  position: absolute;
-  right: -70px;
-  top: 70px;
-  width: 220px;
-  height: 240px;
-  border: 1px solid #bdd49427;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 25px #bdd4940b,
-    0 0 0 50px #bdd4940b;
-  pointer-events: none;
+.home-hero .eyebrow {
+  color: #dce8c2;
+  margin-bottom: 8px;
 }
-.hero-card .eyebrow {
-  color: #c2d0a2;
+.home-hero h2 {
+  font-size: clamp(1.35rem, 4.8vw, 2rem);
+  font-weight: 650;
+  line-height: 1.38;
+  letter-spacing: -0.02em;
 }
-.hero-card h2 {
-  font-size: 2rem;
-  white-space: pre-line;
-  font-weight: 600;
-  line-height: 1.28;
-  letter-spacing: -0.025em;
-  margin: 22px 0 12px;
+.home-hero p {
+  color: #d8e5d2;
+  margin-top: 12px;
 }
-.hero-card p {
-  color: #cddbc8;
-  font-size: 0.9rem;
-  max-width: 340px;
+.home-hero-token {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f4f2de;
 }
-.hero-card .button {
-  background: #e0eabc;
-  border-color: #e0eabc;
-  color: #24472f;
-  position: relative;
-  z-index: 1;
-  margin-top: 24px;
+.home-hero-token h3 {
+  font:
+    700 2rem/1.2 "IBM Plex Mono",
+    monospace;
+  color: #234f36;
 }
-.hero-card .button:hover {
-  background: #eaf0d5;
+.home-hero-token p {
+  color: #3f5d4b;
+  margin-top: 4px;
+  font-size: 0.82rem;
+}
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.home-hero-actions .button {
+  flex: 1;
+  min-width: 175px;
+  margin-top: 0;
+}
+.home-hero-actions .button:not(.secondary) {
+  background: #f0eecf;
+  border-color: #f0eecf;
+  color: #234c35;
+}
+.home-hero-actions .button:not(.secondary):hover:not(:disabled) {
+  background: #f6f4dd;
+}
+.home-hero-actions .button.secondary {
+  background: transparent;
+  border-color: #d4e3cd;
+  color: #edf6ea;
+}
+.home-hero-actions .button.secondary:hover:not(:disabled) {
+  background: #ffffff18;
+}
+.home-journey {
+  background: #fefdf4;
+  border-color: #d8dfca;
+}
+.home-journey h2 {
+  margin-bottom: 6px;
+}
+.home-journey ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.home-journey li {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 0;
+  border-top: 1px solid #e6ebda;
+}
+.home-journey li:first-child {
+  border-top: 0;
+}
+.home-journey li > svg {
+  color: #4e7248;
+}
+.step-number {
+  width: 33px;
+  height: 33px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #edf4e2;
+  color: #426538;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.home-journey h3 {
+  font-size: 0.93rem;
+}
+.home-journey p {
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+.home-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 26px;
+}
+.benefit-card {
+  margin: 0;
+  border-color: #dce4d4;
+  background: #ffffffd9;
+}
+.benefit-card h3 {
+  font-size: 0.98rem;
+}
+.benefit-card p {
+  margin-top: 8px;
+  font-size: 0.82rem;
+}
+.home-main-cta {
+  margin-top: 20px;
+  background: linear-gradient(180deg, #fafbf4, #f2f5e9);
+  border-color: #ced8bf;
+}
+.home-main-cta p {
+  margin-top: 8px;
+}
+.home-main-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.home-main-cta-actions .button {
+  margin-top: 0;
+  flex: 1;
+  min-width: 185px;
 }
 .quick-grid {
   display: grid;
@@ -612,9 +709,6 @@ dd {
   color: #305b36;
   margin: 10px 0 18px;
 }
-.hero-card .token-number {
-  font-size: 3.5rem;
-}
 .ticket-bottom {
   border-top: 2px dashed #dce3d2;
   padding-top: 20px;
@@ -800,12 +894,9 @@ footer {
   .app-header {
     padding: 17px 40px;
   }
-  .hero-card {
-    padding: 30px;
-  }
-  .hero-card .button {
-    width: auto;
-    min-width: 230px;
+  .home-main-cta-actions .button,
+  .home-hero-actions .button {
+    max-width: 300px;
   }
   .quick-action {
     padding: 23px;
@@ -838,11 +929,22 @@ footer {
   .card {
     padding: 19px;
   }
-  .hero-card {
-    padding: 23px;
+  .home-hero-actions .button,
+  .home-main-cta-actions .button {
+    min-width: 100%;
   }
-  .hero-card h2 {
-    font-size: 1.8rem;
+  .home-journey li {
+    grid-template-columns: auto auto 1fr;
+    align-items: flex-start;
+  }
+  .home-journey li .text-button {
+    grid-column: 3;
+    justify-self: start;
+    padding: 4px 0 0;
+    min-height: 0;
+  }
+  .home-benefits {
+    grid-template-columns: 1fr;
   }
   .quick-action {
     padding: 15px 11px;

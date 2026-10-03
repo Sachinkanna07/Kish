@@ -142,6 +142,31 @@ test("validation, cancel and capacity management", async ({ page }) => {
       .filter({ hasText: "Kayathar Direct Purchase Centre" }),
   ).toHaveCount(0);
 });
+test("homepage redesign keeps Kish branding and key farmer flows", async ({
+  page,
+}) => {
+  await login(page);
+  await expect(
+    page.getByRole("heading", {
+      name: "Book → Deliver → Track",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Book a token" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Explore centres" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Fair and transparent", { exact: true }),
+  ).toBeVisible();
+  await expect(page.locator("header")).toContainText("KISH");
+  await expect(page.locator("footer")).toContainText(
+    "KISH · Built for the people who grow.",
+  );
+  await expect(page.locator("body")).not.toContainText("by dot");
+});
 test("offline reload retains installed app shell and records", async ({
   page,
   context,
