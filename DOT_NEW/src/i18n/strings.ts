@@ -9,8 +9,8 @@ import type { Bilingual, Language } from '../types'
  */
 export const strings = {
   /* ---- brand ---- */
-  'brand.name': { en: 'DOT', ta: 'DOT' },
-  'brand.team': { en: 'By DOT Team', ta: 'DOT குழுவினரால்' },
+  'brand.name': { en: 'KISH', ta: 'KISH' },
+  'brand.team': { en: 'KISH', ta: 'KISH' },
   'brand.tagline': {
     en: 'Smart digital procurement for farmers',
     ta: 'விவசாயிகளுக்கான எளிய டிஜிட்டல் கொள்முதல்',
@@ -41,8 +41,8 @@ export const strings = {
   'common.textSize': { en: 'Text size', ta: 'எழுத்து அளவு' },
   'common.help': { en: 'Help', ta: 'உதவி' },
   'common.offline': {
-    en: 'You are offline. The numbers below are the last ones DOT received.',
-    ta: 'இணையம் இல்லை. கீழே உள்ளவை DOT கடைசியாகப் பெற்ற தகவல்கள்.',
+    en: 'You are offline. The numbers below are the last ones KISH received.',
+    ta: 'இணையம் இல்லை. கீழே உள்ளவை KISH கடைசியாகப் பெற்ற தகவல்கள்.',
   },
   'common.demoData': {
     en: 'Prototype: figures are sample data, not a live government feed.',
@@ -52,11 +52,11 @@ export const strings = {
   /* ---- landing ---- */
   'landing.headline': { en: 'A simpler way to sell your produce.', ta: 'உங்கள் விளைச்சலை விற்க எளிய வழி.' },
   'landing.body': {
-    en: 'DOT helps you choose the right procurement centre, book your time, carry a digital token, watch the queue and follow your payment — all from your phone.',
+    en: 'KISH helps you choose the right procurement centre, book your time, carry a digital token, watch the queue and follow your payment — all from your phone.',
     ta: 'சரியான கொள்முதல் நிலையத்தைத் தேர்ந்தெடுக்க, நேரம் பதிவு செய்ய, டிஜிட்டல் டோக்கன் வைத்திருக்க, வரிசையைப் பார்க்க, பணம் வந்ததா என அறிய — எல்லாமே உங்கள் கைபேசியில்.',
   },
   'landing.cta': { en: 'Get started', ta: 'தொடங்கவும்' },
-  'landing.existing': { en: 'I already use DOT', ta: 'நான் ஏற்கனவே DOT பயன்படுத்துகிறேன்' },
+  'landing.existing': { en: 'I already use KISH', ta: 'நான் ஏற்கனவே KISH பயன்படுத்துகிறேன்' },
 
   /* ---- language ---- */
   'language.title': { en: 'Choose your language', ta: 'உங்கள் மொழியைத் தேர்ந்தெடுங்கள்' },
@@ -79,8 +79,8 @@ export const strings = {
     ta: 'சரியான 10 இலக்க கைபேசி எண்ணை உள்ளிடவும்.',
   },
   'login.terms': {
-    en: 'DOT is a demonstration prototype built by DOT Team.',
-    ta: 'DOT என்பது DOT குழுவினர் உருவாக்கிய மாதிரிப் பயன்பாடு.',
+    en: 'KISH is a demonstration prototype.',
+    ta: 'KISH என்பது ஒரு மாதிரிப் பயன்பாடு.',
   },
 
   /* ---- otp ---- */
@@ -94,7 +94,7 @@ export const strings = {
   'otp.changeNumber': { en: 'Use a different number', ta: 'வேறு எண்ணைப் பயன்படுத்து' },
 
   /* ---- role ---- */
-  'role.title': { en: 'How will you use DOT?', ta: 'DOT-ஐ நீங்கள் எப்படிப் பயன்படுத்துவீர்கள்?' },
+  'role.title': { en: 'How will you use KISH?', ta: 'KISH-ஐ நீங்கள் எப்படிப் பயன்படுத்துவீர்கள்?' },
   'role.subtitle': { en: 'Choose the one that matches your work.', ta: 'உங்கள் பணிக்குப் பொருந்துவதைத் தேர்ந்தெடுங்கள்.' },
   'role.farmer': { en: 'Farmer', ta: 'விவசாயி' },
   'role.farmerDesc': {
@@ -130,8 +130,8 @@ export const strings = {
   'home.subtitle': { en: "Here is today's mandi update.", ta: 'இன்றைய மண்டி நிலவரம் இதோ.' },
   'home.noToken': { en: 'You have no booking today', ta: 'இன்று உங்களுக்கு முன்பதிவு இல்லை' },
   'home.noTokenBody': {
-    en: 'Book a time at a centre and DOT will give you a token, so you do not have to stand in line.',
-    ta: 'ஒரு நிலையத்தில் நேரம் பதிவு செய்யுங்கள். DOT உங்களுக்கு டோக்கன் தரும் — வரிசையில் நிற்க வேண்டாம்.',
+    en: 'Book a time at a centre and KISH will give you a token, so you do not have to stand in line.',
+    ta: 'ஒரு நிலையத்தில் நேரம் பதிவு செய்யுங்கள். KISH உங்களுக்கு டோக்கன் தரும் — வரிசையில் நிற்க வேண்டாம்.',
   },
   'home.bookNow': { en: 'Book procurement', ta: 'கொள்முதல் பதிவு செய்' },
   'home.yourToken': { en: 'Your token today', ta: 'இன்றைய உங்கள் டோக்கன்' },
@@ -140,10 +140,10 @@ export const strings = {
   'home.nearby': { en: 'Centres near you', ta: 'உங்கள் அருகில் உள்ள நிலையங்கள்' },
   'home.rates': { en: "Today's rates", ta: 'இன்றைய விலை' },
   'home.ratesSub': { en: 'Best rate available near you, per quintal.', ta: 'உங்கள் அருகில் கிடைக்கும் சிறந்த விலை, குவிண்டாலுக்கு.' },
-  'home.explainTitle': { en: 'How DOT chooses for you', ta: 'DOT எப்படித் தேர்ந்தெடுக்கிறது' },
+  'home.explainTitle': { en: 'How KISH chooses for you', ta: 'KISH எப்படித் தேர்ந்தெடுக்கிறது' },
   'home.explainBody': {
-    en: 'DOT adds up three things for every centre — how far you must travel, how long the queue is, and what rate they are paying today. The centre that leaves the most money in your hand for the least time is the one we suggest.',
-    ta: 'ஒவ்வொரு நிலையத்திற்கும் மூன்று விஷயங்களை DOT கணக்கிடுகிறது — நீங்கள் பயணிக்க வேண்டிய தூரம், வரிசையின் நீளம், இன்று அவர்கள் தரும் விலை. குறைந்த நேரத்தில் அதிக பணம் கிடைக்கும் நிலையத்தையே நாங்கள் பரிந்துரைக்கிறோம்.',
+    en: 'KISH adds up three things for every centre — how far you must travel, how long the queue is, and what rate they are paying today. The centre that leaves the most money in your hand for the least time is the one we suggest.',
+    ta: 'ஒவ்வொரு நிலையத்திற்கும் மூன்று விஷயங்களை KISH கணக்கிடுகிறது — நீங்கள் பயணிக்க வேண்டிய தூரம், வரிசையின் நீளம், இன்று அவர்கள் தரும் விலை. குறைந்த நேரத்தில் அதிக பணம் கிடைக்கும் நிலையத்தையே நாங்கள் பரிந்துரைக்கிறோம்.',
   },
 
   /* ---- quick actions ---- */
@@ -192,7 +192,7 @@ export const strings = {
   'book.qtyTooLarge': { en: 'For more than 20 tonnes, please contact the centre directly.', ta: '20 டன்னுக்கு மேல் என்றால் நேரடியாக நிலையத்தைத் தொடர்பு கொள்ளவும்.' },
 
   /* ---- booking: recommendation ---- */
-  'book.recoTitle': { en: 'DOT suggests this centre', ta: 'DOT இந்த நிலையத்தைப் பரிந்துரைக்கிறது' },
+  'book.recoTitle': { en: 'KISH suggests this centre', ta: 'KISH இந்த நிலையத்தைப் பரிந்துரைக்கிறது' },
   'book.recoSub': { en: 'For {qty} kg of {crop}', ta: '{qty} கிலோ {crop}-க்கு' },
   'book.recoBadge': { en: 'Best for you', ta: 'உங்களுக்குச் சிறந்தது' },
   'book.whyThis': { en: 'Why this centre', ta: 'ஏன் இந்த நிலையம்' },
