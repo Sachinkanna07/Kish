@@ -14,7 +14,7 @@ The system uses one shared backend, one PostgreSQL database, Redis/WebSockets fo
 
 ## Current canonical blueprint
 
-Use [SMART_MANDI_IMPLEMENTATION_BLUEPRINT.md](../SMART_MANDI_IMPLEMENTATION_BLUEPRINT.md) as the source of truth for:
+Use [KISH_IMPLEMENTATION_BLUEPRINT.md](../KISH_IMPLEMENTATION_BLUEPRINT.md) as the source of truth for:
 
 1. pages and routes
 2. API endpoints
