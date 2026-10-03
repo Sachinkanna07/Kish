@@ -28,7 +28,7 @@ export function DotHeader({ showLogout = true, onLogout }: DotHeaderProps) {
         <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-200 bg-gradient-to-br from-emerald-500 to-emerald-600 text-sm font-black text-white">
           D
         </div>
-        <span className="text-lg font-black tracking-[-0.03em] text-slate-900">DOT</span>
+        <span className="text-lg font-black tracking-[-0.03em] text-slate-900">KISH</span>
       </div>
 
       {showLogout && onLogout && (
