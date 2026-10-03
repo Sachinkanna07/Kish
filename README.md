@@ -1,6 +1,6 @@
 ## 🚀 Live Demo
 
-[**Open KISH website →**](https://dot-blond.vercel.app/)
+[**Open KISH website →**](https://kish-app.vercel.app/)
 
 ```powershell
 cd DOT_NEW
