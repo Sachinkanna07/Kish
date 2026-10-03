@@ -638,7 +638,7 @@ export default function App() {
         {stage === "language" ? (
           <>
             {heading(
-              "KISH · BY DOT",
+              "KISH",
               "வணக்கம். Welcome.",
               "Choose your language · உங்கள் மொழியைத் தேர்வு செய்யவும்",
             )}
@@ -1294,7 +1294,7 @@ export default function App() {
         )}
         <section className="ticket">
           <div className="row">
-            <strong>KISH / dot</strong>
+            <strong>KISH</strong>
             <span className="badge">{status(current.status)}</span>
           </div>
           <div className="ticket-main">
