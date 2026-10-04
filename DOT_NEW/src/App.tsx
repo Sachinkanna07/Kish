@@ -628,8 +628,12 @@ export default function App() {
   // Screens are composed below; all roles use the same persistent demo records.
   if (!session)
     content = (
-      <div className={`entry ${stage === "language" ? "entry-language" : ""}`}>
-        <div className={`entry-art ${stage === "language" ? "entry-art-language" : ""}`}>
+      <div
+        className={`entry ${stage === "language" ? "entry-language" : stage === "intro" ? "entry-intro" : ""}`}
+      >
+        <div
+          className={`entry-art ${stage === "language" ? "entry-art-language" : stage === "intro" ? "entry-art-intro" : ""}`}
+        >
           <Icon name="field" size={64} />
           <p>{t("FROM YOUR FIELD.", "உங்கள் வயலிலிருந்து.")}</p>
           <p>{t("TO A FAIRER MARKET.", "நியாயமான சந்தைக்கு.")}</p>
@@ -671,25 +675,46 @@ export default function App() {
             </div>
           </section>
         ) : stage === "intro" ? (
-          <>
+          <section className="card intro-card">
             {heading(
-              t("YOUR HARVEST. YOUR TIME.", "உங்கள் விளைச்சல். உங்கள் நேரம்."),
+              "KISH",
               t(
-                "A simpler way to sell your produce.",
-                "உங்கள் விளைபொருளை விற்க எளிய வழி.",
+                "Your harvest, guided with confidence.",
+                "உங்கள் விளைச்சல், நம்பிக்கையுடன் வழிகாட்டப்படுகிறது.",
               ),
               t(
-                "Choose a centre, reserve your turn and follow every step through to payment.",
-                "நிலையத்தைத் தேர்வு செய்து, நேரத்தை முன்பதிவு செய்து, பணம் பெறும் வரை கண்காணியுங்கள்.",
+                "Simple booking, fairer flow, and clear tracking from your village to payment.",
+                "கிராமத்திலிருந்து பணம் பெறும் வரை எளிய முன்பதிவு, நியாயமான செயல்முறை, தெளிவான கண்காணிப்பு.",
               ),
             )}
-            <div className="journey">
-              <span>01 · {t("Book", "முன்பதிவு")}</span>
-              <span>02 · {t("Deliver", "ஒப்படை")}</span>
-              <span>03 · {t("Track", "கண்காணி")}</span>
-            </div>
+            <p className="intro-note">
+              {t(
+                "Built to make mandi visits calmer, faster, and farmer-friendly.",
+                "மண்டி பயணத்தை அமைதியானதும், வேகமானதும், விவசாயி நட்பானதுமாக மாற்ற உருவாக்கப்பட்டது.",
+              )}
+            </p>
+            <ol
+              className="intro-journey"
+              aria-label={t("KISH journey steps", "கிஷ் பயண படிகள்")}
+            >
+              <li>
+                <span className="step-number">01</span>
+                <Icon name="field" size={18} />
+                <span>{t("Book", "முன்பதிவு")}</span>
+              </li>
+              <li>
+                <span className="step-number">02</span>
+                <Icon name="home" size={18} />
+                <span>{t("Deliver", "ஒப்படை")}</span>
+              </li>
+              <li>
+                <span className="step-number">03</span>
+                <Icon name="ticket" size={18} />
+                <span>{t("Track", "கண்காணி")}</span>
+              </li>
+            </ol>
             {button(t("Get started", "தொடங்கலாம்"), () => setStage("login"))}
-          </>
+          </section>
         ) : stage === "login" ? (
           <>
             {heading(

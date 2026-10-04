@@ -534,6 +534,9 @@ main {
 .entry-language {
   max-width: 560px;
 }
+.entry-intro {
+  max-width: 560px;
+}
 .entry-art {
   height: 172px;
   background: #e9eedd;
@@ -565,6 +568,60 @@ main {
   border: 1px solid #d1dcc0;
   border-radius: 22px;
   box-shadow: 0 16px 36px #4562311f;
+}
+.entry-art-intro {
+  background: linear-gradient(155deg, #e8efda 0%, #dce8cd 60%, #d2e0c1 100%);
+  border: 1px solid #c5d6b5;
+  border-radius: 22px;
+  box-shadow: 0 16px 36px #304f271f;
+}
+.intro-card {
+  margin-top: 0;
+  border-color: #ced9be;
+  border-radius: 20px;
+  background: #fffef7;
+}
+.intro-card .page-heading {
+  margin-bottom: 14px;
+}
+.intro-card .eyebrow {
+  color: #3f6a3d;
+}
+.intro-card .page-heading h1 {
+  font-size: clamp(1.55rem, 4.3vw, 2.1rem);
+}
+.intro-note {
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: #5a6b51;
+}
+.intro-journey {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.intro-journey li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #d8e3ca;
+  border-radius: 12px;
+  background: #f7fbe9;
+  padding: 10px 12px;
+  color: #325439;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.intro-journey li > svg {
+  color: #4e7248;
+}
+.intro-journey .step-number {
+  width: 29px;
+  height: 29px;
+  font-size: 0.7rem;
+  flex-shrink: 0;
 }
 .language-card {
   margin-top: 0;
@@ -1044,6 +1101,12 @@ footer {
   }
   .language-card .page-heading h1 {
     font-size: 1.8rem;
+  }
+  .intro-card .page-heading h1 {
+    font-size: 1.6rem;
+  }
+  .intro-journey li {
+    padding: 9px 10px;
   }
   .language-choice {
     padding: 15px;
