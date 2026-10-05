@@ -2,7 +2,7 @@
 
 ### Bilingual smart procurement platform for farmers
 
-KISH is an installable agricultural procurement PWA designed to demonstrate a complete farmer-to-procurement workflow in **English and Tamil**.
+KISH is a mobile-first, installable agricultural procurement PWA designed to demonstrate a complete farmer-to-procurement workflow in **English and Tamil**. It is optimized for mobile use and can be installed directly from a supported mobile browser for an app-like experience.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-kish--app.vercel.app-000000?style=for-the-badge&logo=vercel)](https://kish-app.vercel.app/)
 [![Repository](https://img.shields.io/badge/GitHub-Sachinkanna07%2FKish-181717?style=for-the-badge&logo=github)](https://github.com/Sachinkanna07/Kish)
@@ -98,7 +98,11 @@ npm test
 
 ---
 
-## 📱 Install as a PWA
+## 📱 Mobile-first & installable
+
+KISH is designed to be especially convenient on mobile. Open the live demo in a supported mobile browser and install it to your home screen for an app-like experience.
+
+## Install as a PWA
 
 - **Android Chrome:** Menu → Add to Home screen / Install app
 - **iPhone Safari:** Share → Add to Home Screen
