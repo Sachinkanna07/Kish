@@ -628,29 +628,44 @@ export default function App() {
   // Screens are composed below; all roles use the same persistent demo records.
   if (!session)
     content = (
-      <div className="entry">
-        <div className="entry-art">
+      <div
+        className={`entry ${stage === "language" ? "entry-language" : stage === "intro" ? "entry-intro" : ""}`}
+      >
+        <div
+          className={`entry-art ${stage === "language" ? "entry-art-language" : stage === "intro" ? "entry-art-intro" : ""}`}
+        >
           <Icon name="field" size={64} />
           <p>{t("FROM YOUR FIELD.", "உங்கள் வயலிலிருந்து.")}</p>
           <p>{t("TO A FAIRER MARKET.", "நியாயமான சந்தைக்கு.")}</p>
           <div className="field-lines" />
         </div>
         {stage === "language" ? (
-          <>
+          <section className="card language-card">
             {heading(
               "KISH",
               "வணக்கம். Welcome.",
               "Choose your language · உங்கள் மொழியைத் தேர்வு செய்யவும்",
             )}
-            <div className="stack">
+            <p className="language-note">
+              {t(
+                "Pick one language to continue. You can switch this anytime.",
+                "தொடர ஒரு மொழியைத் தேர்வு செய்யுங்கள். இதை எப்போது வேண்டுமானாலும் மாற்றலாம்.",
+              )}
+            </p>
+            <div className="stack language-options">
               {(["ta", "en"] as const).map((l) => (
                 <button
-                  className={`choice ${language === l ? "selected" : ""}`}
+                  className={`choice language-choice ${language === l ? "selected" : ""}`}
                   key={l}
                   onClick={() => setLanguage(l)}
                 >
-                  <strong>{l === "ta" ? "தமிழ்" : "English"}</strong>
-                  <span>{language === l ? "●" : "○"}</span>
+                  <strong>
+                    {l === "ta" ? "தமிழ்" : "English"}
+                    <small>{l === "ta" ? "Tamil" : "ஆங்கிலம்"}</small>
+                  </strong>
+                  <span className="language-choice-indicator">
+                    {language === l ? "●" : "○"}
+                  </span>
                 </button>
               ))}
               {button(t("Continue", "தொடரவும்"), () => {
@@ -658,27 +673,48 @@ export default function App() {
                 setStage("intro");
               })}
             </div>
-          </>
+          </section>
         ) : stage === "intro" ? (
-          <>
+          <section className="card intro-card">
             {heading(
-              t("YOUR HARVEST. YOUR TIME.", "உங்கள் விளைச்சல். உங்கள் நேரம்."),
+              "KISH",
               t(
-                "A simpler way to sell your produce.",
-                "உங்கள் விளைபொருளை விற்க எளிய வழி.",
+                "Your harvest, guided with confidence.",
+                "உங்கள் விளைச்சல், நம்பிக்கையுடன் வழிகாட்டப்படுகிறது.",
               ),
               t(
-                "Choose a centre, reserve your turn and follow every step through to payment.",
-                "நிலையத்தைத் தேர்வு செய்து, நேரத்தை முன்பதிவு செய்து, பணம் பெறும் வரை கண்காணியுங்கள்.",
+                "Simple booking, fairer flow, and clear tracking from your village to payment.",
+                "கிராமத்திலிருந்து பணம் பெறும் வரை எளிய முன்பதிவு, நியாயமான செயல்முறை, தெளிவான கண்காணிப்பு.",
               ),
             )}
-            <div className="journey">
-              <span>01 · {t("Book", "முன்பதிவு")}</span>
-              <span>02 · {t("Deliver", "ஒப்படை")}</span>
-              <span>03 · {t("Track", "கண்காணி")}</span>
-            </div>
+            <p className="intro-note">
+              {t(
+                "Built to make mandi visits calmer, faster, and farmer-friendly.",
+                "மண்டி பயணத்தை அமைதியானதும், வேகமானதும், விவசாயி நட்பானதுமாக மாற்ற உருவாக்கப்பட்டது.",
+              )}
+            </p>
+            <ol
+              className="intro-journey"
+              aria-label={t("KISH journey steps", "கிஷ் பயண படிகள்")}
+            >
+              <li>
+                <span className="step-number">01</span>
+                <Icon name="field" size={18} />
+                <span>{t("Book", "முன்பதிவு")}</span>
+              </li>
+              <li>
+                <span className="step-number">02</span>
+                <Icon name="home" size={18} />
+                <span>{t("Deliver", "ஒப்படை")}</span>
+              </li>
+              <li>
+                <span className="step-number">03</span>
+                <Icon name="ticket" size={18} />
+                <span>{t("Track", "கண்காணி")}</span>
+              </li>
+            </ol>
             {button(t("Get started", "தொடங்கலாம்"), () => setStage("login"))}
-          </>
+          </section>
         ) : stage === "login" ? (
           <>
             {heading(
@@ -889,54 +925,171 @@ export default function App() {
         )}
         {isFarmer ? (
           <>
-            <section className="hero-card">
-              <div className="row">
-                <span className="eyebrow">
-                  {current
-                    ? t("YOUR CURRENT TOKEN", "உங்கள் தற்போதைய டோக்கன்")
-                    : t("READY WHEN YOU ARE", "உங்களுக்காகத் தயார்")}
-                </span>
-                <Icon name="ticket" size={28} />
-              </div>
-              {current ? (
-                <>
-                  <h2 className="token-number">#{current.tokenNo}</h2>
-                  <h3>{centreById(current.centreId)?.name[language]}</h3>
+            <section className="home-hero card">
+              <p className="eyebrow">
+                {t(
+                  "SMART AGRI LOGISTICS FOR EVERY HARVEST",
+                  "ஒவ்வொரு விளைச்சலுக்கும் புத்திசாலி அக்கிரி சேவை",
+                )}
+              </p>
+              <h2>
+                {current
+                  ? t(
+                      "Your harvest is moving right on time.",
+                      "உங்கள் விளைச்சல் நேரத்தில் நகர்கிறது.",
+                    )
+                  : t(
+                      "Book once, deliver smoothly, and track every step with KISH.",
+                      "கிஷ் மூலம் முன்பதிவு செய்து, சீரான ஒப்படைப்பு மற்றும் ஒவ்வொரு நிலையும் கண்காணிக்கலாம்.",
+                    )}
+              </h2>
+              <p>
+                {current
+                  ? t(
+                      "Your current trip is active. Stay informed with live queue and payment-ready updates.",
+                      "உங்கள் தற்போதைய பயணம் செயலில் உள்ளது. வரிசை மற்றும் பணப்பதிவு புதுப்பிப்புகளை உடனுக்குடன் பாருங்கள்.",
+                    )
+                  : t(
+                      "Reserve your slot before leaving your village, reduce waiting time, and reach the right centre with confidence.",
+                      "கிராமத்திலிருந்து புறப்படும் முன் நேரத்தை முன்பதிவு செய்து, காத்திருப்பை குறைத்து, நம்பிக்கையுடன் சரியான நிலையத்தை அடையுங்கள்.",
+                    )}
+              </p>
+              {current && (
+                <div className="home-hero-token">
+                  <h3>#{current.tokenNo}</h3>
                   <p>
-                    {current.date} · {current.slotId} · {status(current.status)}
+                    {centreById(current.centreId)?.name[language]} ·{" "}
+                    {current.date} · {current.slotId}
                   </p>
                   <p>
+                    {status(current.status)} ·{" "}
                     {data.queues[current.centreId] ??
                       centreById(current.centreId)!.initialQueue}{" "}
-                    {t(
-                      "farmers ahead · demo queue",
-                      "விவசாயிகள் முன்னால் · மாதிரி வரிசை",
-                    )}
+                    {t("farmers ahead", "விவசாயிகள் முன்னால்")}
                   </p>
-                  {button(t("Track my token", "என் டோக்கனை கண்காணி"), () =>
-                    navigate("token"),
-                  )}
-                </>
-              ) : (
-                <>
-                  <h2>
-                    {t(
-                      "Your next harvest,\none less wait.",
-                      "உங்கள் அடுத்த விளைச்சல்,\nகுறைவான காத்திருப்பு.",
-                    )}
-                  </h2>
-                  <p>
-                    {t(
-                      "Reserve a slot before you leave your village.",
-                      "கிராமத்திலிருந்து புறப்படும் முன் நேரத்தை முன்பதிவு செய்யுங்கள்.",
-                    )}
-                  </p>
-                  {button(t("Book a token", "டோக்கன் முன்பதிவு"), () => {
-                    setStep(0);
-                    navigate("book");
-                  })}
-                </>
+                </div>
               )}
+              <div className="home-hero-actions">
+                {current
+                  ? button(t("Track my token", "என் டோக்கனை கண்காணி"), () =>
+                      navigate("token"),
+                    )
+                  : button(t("Book a token", "டோக்கன் முன்பதிவு"), () => {
+                      setStep(0);
+                      navigate("book");
+                    })}
+                <button
+                  className="button secondary"
+                  onClick={() => navigate(current ? "alerts" : "centres")}
+                >
+                  {current
+                    ? t("View alerts", "அறிவிப்புகளைப் பார்க்கவும்")
+                    : t("Explore centres", "நிலையங்களைப் பாருங்கள்")}
+                </button>
+              </div>
+            </section>
+            <section className="home-journey card">
+              <h2>
+                {t("Book → Deliver → Track", "முன்பதிவு → ஒப்படை → கண்காணி")}
+              </h2>
+              <ol>
+                <li>
+                  <span className="step-number">01</span>
+                  <Icon name="field" size={20} />
+                  <div>
+                    <h3>{t("Book", "முன்பதிவு")}</h3>
+                    <p>
+                      {t(
+                        "Choose crop, quantity, centre and slot in minutes.",
+                        "பயிர், அளவு, நிலையம், நேரத்தை சில நிமிடங்களில் தேர்வு செய்யுங்கள்.",
+                      )}
+                    </p>
+                  </div>
+                  <button
+                    className="text-button"
+                    onClick={() => {
+                      setStep(0);
+                      navigate("book");
+                    }}
+                  >
+                    {t("Start booking", "முன்பதிவு தொடங்கு")}
+                  </button>
+                </li>
+                <li>
+                  <span className="step-number">02</span>
+                  <Icon name="home" size={20} />
+                  <div>
+                    <h3>{t("Deliver", "ஒப்படை")}</h3>
+                    <p>
+                      {t(
+                        "Arrive at the selected centre and proceed in order.",
+                        "தேர்ந்தெடுத்த நிலையத்திற்கு வந்து உங்கள் வரிசைப்படி செயல்படுங்கள்.",
+                      )}
+                    </p>
+                  </div>
+                  <button
+                    className="text-button"
+                    onClick={() => navigate("token")}
+                  >
+                    {t("View token", "டோக்கனைப் பாருங்கள்")}
+                  </button>
+                </li>
+                <li>
+                  <span className="step-number">03</span>
+                  <Icon name="ticket" size={20} />
+                  <div>
+                    <h3>{t("Track", "கண்காணி")}</h3>
+                    <p>
+                      {t(
+                        "Follow queue, procurement status and payment updates.",
+                        "வரிசை, கொள்முதல் நிலை, பணப் புதுப்பிப்புகளை கண்காணிக்கவும்.",
+                      )}
+                    </p>
+                  </div>
+                  <button
+                    className="text-button"
+                    onClick={() => navigate("alerts")}
+                  >
+                    {t("Open updates", "புதுப்பிப்புகளைத் திறக்கவும்")}
+                  </button>
+                </li>
+              </ol>
+            </section>
+            <section className="home-benefits">
+              <article className="card benefit-card">
+                <h3>
+                  {t("Fair and transparent", "நியாயமான மற்றும் வெளிப்படையான")}
+                </h3>
+                <p>
+                  {t(
+                    "See queue and token progress with clear procurement milestones.",
+                    "வரிசை மற்றும் டோக்கன் முன்னேற்றத்தை தெளிவான கொள்முதல் நிலைகளுடன் பாருங்கள்.",
+                  )}
+                </p>
+              </article>
+              <article className="card benefit-card">
+                <h3>
+                  {t(
+                    "Less waiting, more planning",
+                    "குறைந்த காத்திருப்பு, நல்ல திட்டம்",
+                  )}
+                </h3>
+                <p>
+                  {t(
+                    "Plan delivery before travel and reduce time spent at the centre.",
+                    "பயணத்திற்கு முன் ஒப்படைப்பை திட்டமிட்டு நிலையத்தில் செலவாகும் நேரத்தை குறைக்கவும்.",
+                  )}
+                </p>
+              </article>
+              <article className="card benefit-card">
+                <h3>{t("Payment confidence", "பணம் பெறும் நம்பிக்கை")}</h3>
+                <p>
+                  {t(
+                    "Track every stage from booking to payment-ready status.",
+                    "முன்பதிவிலிருந்து பணம் பெறும் நிலை வரை ஒவ்வொரு படியையும் கண்காணிக்கலாம்.",
+                  )}
+                </p>
+              </article>
             </section>
             <div className="quick-grid">
               {(
@@ -986,6 +1139,37 @@ export default function App() {
             <div className="centre-grid">
               {centres.slice(0, 2).map((c) => centreCard(c))}
             </div>
+            <section className="home-main-cta card">
+              <h2>
+                {t(
+                  "Ready for your next market trip?",
+                  "உங்கள் அடுத்த சந்தை பயணத்திற்கு தயார் தானே?",
+                )}
+              </h2>
+              <p>
+                {t(
+                  "Keep every harvest organized with one place to book, track and stay updated.",
+                  "முன்பதிவு, கண்காணிப்பு, புதுப்பிப்புகள் அனைத்தையும் ஒரே இடத்தில் வைத்துப் பயணத்தை எளிதாக்குங்கள்.",
+                )}
+              </p>
+              <div className="home-main-cta-actions">
+                <button
+                  className="button"
+                  onClick={() => {
+                    setStep(0);
+                    navigate("book");
+                  }}
+                >
+                  {t("Plan next delivery", "அடுத்த ஒப்படைப்பை திட்டமிடு")}
+                </button>
+                <button
+                  className="button secondary"
+                  onClick={() => navigate("token")}
+                >
+                  {t("Track active token", "செயலில் உள்ள டோக்கனை கண்காணி")}
+                </button>
+              </div>
+            </section>
           </>
         ) : (
           <>
@@ -1900,7 +2084,10 @@ export default function App() {
             <Icon name="field" size={27} />
           </span>
           <span>
-            Kish<small>by dot</small>
+            KISH
+            <small>
+              {t("Agri logistics platform", "அக்கிரி லாஜிஸ்டிக்ஸ் தளம்")}
+            </small>
           </span>
         </a>
         <div className="header-actions">
@@ -1966,10 +2153,9 @@ export default function App() {
           </div>
         )}
         <footer>
-          Kish ·{" "}
           {t(
-            "Built by dot for the people who grow.",
-            "விவசாயிகளுக்காக dot உருவாக்கியது.",
+            "KISH · Built for the people who grow.",
+            "கிஷ் · பயிரிடுபவர்களுக்காக உருவாக்கப்பட்டது.",
           )}
         </footer>
       </main>
