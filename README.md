@@ -1,164 +1,53 @@
-<div align="center">
+<img src="DOT_NEW/public/icon-192.png" alt="KISH app icon" width="68" height="68">
 
-# 🌾 KISH
+# KISH
 
-### From farm to procurement centre, one step at a time.
+Book a crop delivery in Tamil or English, follow its token through the procurement queue, and see how the centre turns measured weight and grade into a receipt. KISH is an installable, mobile-first demo for farmers, procurement centres, and administrators.
 
-**English + Tamil** · **Mobile-first** · **Installable PWA**
+[Open the live demo](https://kish-app.vercel.app/) · [Full demonstration guide](DOT_NEW/README.md#five-minute-demonstration) · [Booking rules](DOT_NEW/src/services/procurement.ts)
 
-[Live demo](https://kish-app.vercel.app/) · [Product flow](#-product-flow) · [Run locally](#-run-locally)
+## Follow 250 kg of paddy
 
-</div>
+| Step | What to try |
+| --- | --- |
+| **1 · Book as a farmer** | Choose a language and use the sample sign-in from the [demo guide](DOT_NEW/README.md#five-minute-demonstration). Select **Book a token → Paddy**, enter **250 kg**, choose a recommended centre and an available slot, then confirm. |
+| **2 · Join the queue** | Open the digital token, advance the simulated queue and record arrival. Reload to see the booking persist. |
+| **3 · Record the delivery** | Under **Profile → Demo role**, switch to **Procurement centre** and select the same centre. Open the booking, start procurement, and enter **245 kg**, grade **B**. Complete procurement and record the demo payment. |
+| **4 · Read the receipt** | Switch back to **Farmer** and open **Payments**. Look for the paid record, then switch to **தமிழ்** to read the token in Tamil. |
 
-KISH is a mobile-first, installable agricultural procurement PWA designed to demonstrate a complete farmer-to-procurement workflow in **English and Tamil**. It is optimized for mobile use and can be installed directly from a supported mobile browser for an app-like experience.
+The administration view lets you review demo records, close a centre, or change slot and daily capacity. These records live in the current browser. Use sample details. The demo simulates role switching, queues, alerts, market prices, and payment records.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-kish--app.vercel.app-000000?style=for-the-badge&logo=vercel)](https://kish-app.vercel.app/)
-[![Repository](https://img.shields.io/badge/GitHub-Sachinkanna07%2FKish-181717?style=for-the-badge&logo=github)](https://github.com/Sachinkanna07/Kish)
+## Run locally
 
----
+Use Node.js 24 LTS. The React, TypeScript and Vite application lives in [DOT_NEW](DOT_NEW/).
 
-## ✨ What KISH demonstrates
-
-- English–Tamil onboarding and UI
-- Farmer, procurement-centre, and admin workflows
-- Crop selection and quantity conversion
-- Centre recommendation and booking flow
-- Digital token and queue simulation
-- Procurement completion with weight and grade
-- Demo payment records and receipts
-- Alerts, profile management, and role switching
-- Installable PWA with offline support
-- Automated browser testing with Playwright
-
----
-
-## 🧭 Product Flow
-
-```text
-Farmer
-  ↓
-Choose crop & quantity
-  ↓
-Recommended procurement centre
-  ↓
-Book slot & receive token
-  ↓
-Centre check-in & procurement
-  ↓
-Weight / grade / valuation
-  ↓
-Demo payment record
-  ↓
-Receipt + alerts + history
-```
-
----
-
-## 🛠 Tech Stack
-
-**Frontend:** React · TypeScript · Vite · Tailwind CSS  
-**PWA / Offline:** Web App Manifest · Service Worker  
-**Testing:** Playwright  
-**Data / Integration:** Local persistence · Supabase client support  
-**Backend prototype:** FastAPI · SQLite/PostgreSQL-ready structure  
-**Deployment:** Vercel
-
----
-
-## 🚀 Live Demo
-
-👉 **https://kish-app.vercel.app/**
-
-For the demo workflow, use sample data only.
-
----
-
-## 💻 Run Locally
-
-The current application source is inside the `DOT_NEW` directory.
-
-```bash
+```sh
 cd DOT_NEW
 npm ci
 npm run dev
 ```
 
-Production-style build:
+For offline use, build and serve the production version. Open the printed localhost address once while connected so the service worker can cache the app.
 
-```bash
+```sh
 npm run build
 npm run preview
 ```
 
-> The `DOT_NEW` folder name is an internal legacy project path. The product name is **KISH**.
+Install from **Add to Home Screen** in iPhone Safari, or the install option in Chrome or Edge. The hosted app uses HTTPS. Records stay on the device where the demo was opened.
 
----
+<details>
+<summary>Tests and implementation</summary>
 
-## 🧪 Validation
+From `DOT_NEW`, run:
 
-```bash
-cd DOT_NEW
+```sh
 npm run lint
 npm run build
 npx playwright install chromium
 npm test
 ```
 
----
+The [Playwright scenarios](DOT_NEW/tests/app.spec.ts) cover the booking-to-receipt flow, bilingual UI, invalid quantities, capacity, persistence, and offline reload. [App.tsx](DOT_NEW/src/App.tsx) coordinates the role screens. [Procurement rules](DOT_NEW/src/services/procurement.ts) handle recommendations, slots and capacity. The [FastAPI backend prototype](DOT_NEW/backend/) and [Supabase client](DOT_NEW/src/lib/supabase.ts) are separate from the browser-local demonstration.
 
-## 📱 Mobile-first & installable
-
-KISH is designed to be especially convenient on mobile. Open the live demo in a supported mobile browser and install it to your home screen for an app-like experience.
-
-## Install as a PWA
-
-- **Android Chrome:** Menu → Add to Home screen / Install app
-- **iPhone Safari:** Share → Add to Home Screen
-- **Desktop Chrome/Edge:** Use the install icon when available
-
-KISH is a PWA, not an APK.
-
----
-
-## ⚠️ Demo Boundaries
-
-KISH is currently a prototype/demo environment.
-
-- Payments are simulated; no real money is transferred.
-- Queue, centre capacity, prices, and facilities use sample data.
-- Role switching is included for demonstration.
-- Demo data can be stored locally in the browser.
-- Do not enter real farmer or payment information.
-
----
-
-## 📂 Repository Structure
-
-```text
-Kish/
-├── DOT_NEW/          # Current application source
-│   ├── src/
-│   ├── public/
-│   ├── backend/
-│   ├── docs/
-│   ├── tests/
-│   └── package.json
-├── README.md
-└── implementation / blueprint documents
-```
-
----
-
-## 📌 Status
-
-KISH is an active prototype focused on demonstrating the end-to-end procurement experience, bilingual accessibility, offline capability, and operational workflows.
-
----
-
-<div align="center">
-
-**KISH — simpler digital procurement for farmers.**
-
-[Live Demo](https://kish-app.vercel.app/) · [GitHub](https://github.com/Sachinkanna07/Kish)
-
-</div>
+</details>
